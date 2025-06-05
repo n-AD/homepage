@@ -99,34 +99,33 @@
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* Changed from space-between */
+  gap: 4px; /* Add consistent spacing */
   width: 2rem;
   height: 1.5rem;
   cursor: pointer;
   z-index: 1100;
-  margin-left: auto; /* Keeps it aligned to the right inside flex container */
+  margin-left: auto;
 }
-
 .hamburger span {
   background-color: white;
   height: 3px;
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
-
 .hamburger:hover span {
   background-color: var(--clr-primary-3);
 }
-
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(6px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0;
 }
 .hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-6px);
+  transform: rotate(-45deg) translate(5px, -6px);
 }
+
 
 /* Mobile nav menu */
 .mobileNav {
