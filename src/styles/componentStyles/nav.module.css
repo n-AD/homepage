@@ -1,18 +1,12 @@
 .navbar {
   width: 100%;
-  height: 10vh;
+  padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
-  font-size: 1.5em;
   background-color: var(--clr-primary-2);
-}
-
-.rootLink {
-  font-size: 2rem;
-  display: flex;
-  gap: 20px;
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
+  position: relative; /* Add this line */
 }
 
 .sticky {
@@ -22,52 +16,154 @@
 }
 
 .headerLinksContainer {
-  height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: var(--margin);
+  padding: 0 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.logo {
-  width: 75px;
-  height: auto;
-  border-radius: 50%;
-}
-.navLinks {
+.navRoot {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.rootLink,
-.navLink {
-  height: 7vh;
+.logo {
+  width: clamp(40px, 5vw, 75px);
+  height: auto;
+  border-radius: 50%;
+}
+
+.rootLink {
   display: flex;
   align-items: center;
-  padding: 1rem;
-  border-radius: 6px;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  gap: 1rem;
+  color: white;
+  text-decoration: none;
+}
+/*lol this is the code that makes the yellow line zoom across the screen when I hover over my name....i might leave it */
+.rootLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--clr-primary-3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.rootLink:hover::after,
+.active::after {
+  transform: scaleX(1);
+}
+.navLinks {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .navLink {
-  text-decoration: none;
   position: relative;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
 }
 
 .navLink::after {
   content: "";
   position: absolute;
+  left: 0;
+  bottom: -4px;
   width: 100%;
   height: 2px;
-  bottom: 0;
-  left: 0;
   background-color: var(--clr-primary-3);
-  visibility: hidden;
   transform: scaleX(0);
-  transition: all 0.3s ease-in-out;
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
 }
 
 .navLink:hover::after,
 .active::after {
-  visibility: visible;
   transform: scaleX(1);
+}
+
+/* ---------- Hamburger Menu Styles ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2rem;
+  height: 1.5rem;
+  cursor: pointer;
+  z-index: 1100;
+  margin-left: auto; /* Keeps it aligned to the right inside flex container */
+}
+
+.hamburger span {
+  background-color: white;
+  height: 3px;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover span {
+  background-color: var(--clr-primary-3);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+/* Mobile nav menu */
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background-color: var(--clr-primary-2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  z-index: 1100;
+  box-shadow: var(--hover-shadow);
+  min-width: 160px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive Behavior ---------- */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
