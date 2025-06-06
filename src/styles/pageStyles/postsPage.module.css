@@ -4,7 +4,8 @@
 .postPageContainer {
   max-width: var(--content-max-width, min(90vw, 1200px));
   margin: 0 auto;
-  padding: var(--section-spacing, clamp(2rem, 8vw, 6rem)) var(--container-padding, clamp(1rem, 5vw, 3rem));
+  padding: var(--section-spacing, clamp(2rem, 8vw, 6rem))
+    var(--container-padding, clamp(1rem, 5vw, 3rem));
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
   gap: var(--space-xl, 2rem);
@@ -23,7 +24,12 @@
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: var(--font-weight-bold, 700);
   margin-bottom: var(--space-md, 1.5rem);
-  background: linear-gradient(135deg, #ffffff 0%, var(--clr-primary-3) 50%, var(--clr-primary-7) 100%);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    var(--clr-primary-3) 50%,
+    var(--clr-primary-7) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -31,7 +37,11 @@
 }
 
 .pageHeader p {
-  font-size: clamp(var(--font-size-base, 1rem), 2vw, var(--font-size-lg, 1.125rem));
+  font-size: clamp(
+    var(--font-size-base, 1rem),
+    2vw,
+    var(--font-size-lg, 1.125rem)
+  );
   color: rgba(255, 255, 255, 0.8);
   max-width: 60ch;
   margin: 0 auto;
@@ -41,7 +51,11 @@
 /* Modern Post Cards */
 .postCard {
   width: 100%;
-  background: linear-gradient(145deg, var(--clr-primary-2) 0%, var(--clr-primary-1) 100%);
+  background: linear-gradient(
+    145deg,
+    var(--clr-primary-2) 0%,
+    var(--clr-primary-1) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: var(--space-xl, 2rem);
@@ -56,13 +70,18 @@
 
 /* Gradient accent bar */
 .postCard::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--clr-primary-3), var(--clr-primary-8), var(--clr-primary-7));
+  background: linear-gradient(
+    90deg,
+    var(--clr-primary-3),
+    var(--clr-primary-8),
+    var(--clr-primary-7)
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -75,6 +94,64 @@
 
 .postCard:hover::before {
   opacity: 1;
+}
+
+/* Make the card link cover the entire card */
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  padding: 0; /* Remove existing padding since it's now wrapping everything */
+  border-top: none; /* Remove the border since it's now the main container */
+  margin-top: 0; /* Reset margin */
+}
+
+/* New footer container for reading time and button */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md, 1.5rem) 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+/* Update the read more button to be a span since it's inside a link */
+.readMoreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs, 0.5rem);
+  padding: var(--space-sm, 1rem) var(--space-lg, 2rem);
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-3) 0%,
+    var(--clr-primary-8) 100%
+  );
+  color: white;
+  border-radius: 25px;
+  font-weight: var(--font-weight-medium, 500);
+  font-size: var(--font-size-sm, 0.875rem);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+  cursor: pointer;
+}
+
+.cardLink:hover .readMoreButton {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+  filter: brightness(1.1);
+}
+
+.readMoreButton svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.cardLink:hover .readMoreButton svg {
+  transform: translateX(4px);
 }
 
 /* Post Metadata */
@@ -105,7 +182,11 @@
 
 /* Post Title */
 .title {
-  font-size: clamp(var(--font-size-xl, 1.25rem), 3vw, var(--font-size-2xl, 1.5rem));
+  font-size: clamp(
+    var(--font-size-xl, 1.25rem),
+    3vw,
+    var(--font-size-2xl, 1.5rem)
+  );
   font-weight: var(--font-weight-bold, 700);
   color: white;
   margin-bottom: var(--space-md, 1.5rem);
@@ -178,7 +259,11 @@
   align-items: center;
   gap: var(--space-xs, 0.5rem);
   padding: var(--space-sm, 1rem) var(--space-lg, 2rem);
-  background: linear-gradient(135deg, var(--clr-primary-3) 0%, var(--clr-primary-8) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-3) 0%,
+    var(--clr-primary-8) 100%
+  );
   color: white;
   border-radius: 25px;
   text-decoration: none;
@@ -218,13 +303,21 @@
 /* Featured Post */
 .postCard.featured {
   grid-column: 1 / -1;
-  background: linear-gradient(145deg, var(--clr-primary-3) 0%, var(--clr-primary-8) 100%);
+  background: linear-gradient(
+    145deg,
+    var(--clr-primary-3) 0%,
+    var(--clr-primary-8) 100%
+  );
   color: white;
   padding: var(--space-2xl, 3rem);
 }
 
 .postCard.featured .title {
-  font-size: clamp(var(--font-size-2xl, 1.5rem), 4vw, var(--font-size-3xl, 1.875rem));
+  font-size: clamp(
+    var(--font-size-2xl, 1.5rem),
+    4vw,
+    var(--font-size-3xl, 1.875rem)
+  );
   color: white;
 }
 
@@ -234,7 +327,12 @@
 }
 
 .postCard.featured::before {
-  background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6), rgba(255,255,255,0.3));
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.3)
+  );
 }
 
 /* Filter/Search Section */
@@ -304,41 +402,41 @@
     gap: var(--space-lg, 2rem);
     padding: var(--space-2xl, 3rem) var(--space-md, 1.5rem);
   }
-  
+
   .postCard {
     padding: var(--space-lg, 2rem);
   }
-  
+
   .postCard.featured {
     padding: var(--space-xl, 2rem);
   }
-  
+
   .filterSection {
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-md, 1.5rem);
   }
-  
+
   .filterButtons {
     justify-content: center;
   }
-  
+
   .filterButton {
     padding: var(--space-xs, 0.5rem) var(--space-md, 1.5rem);
     font-size: var(--font-size-sm, 0.875rem);
   }
-  
+
   .searchBox {
     min-width: auto;
     width: 100%;
   }
-  
+
   .postMeta {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-xs, 0.5rem);
   }
-  
+
   .postCategory {
     margin-left: 0;
     align-self: flex-start;
@@ -375,11 +473,21 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
-.postCard:nth-child(2) { animation-delay: 0.1s; }
-.postCard:nth-child(3) { animation-delay: 0.2s; }
-.postCard:nth-child(4) { animation-delay: 0.3s; }
-.postCard:nth-child(5) { animation-delay: 0.4s; }
-.postCard:nth-child(6) { animation-delay: 0.5s; }
+.postCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.postCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.postCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.postCard:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.postCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
@@ -389,7 +497,7 @@
     animation: none;
     transition: none;
   }
-  
+
   .postCard:hover,
   .readMoreButton:hover {
     transform: none;

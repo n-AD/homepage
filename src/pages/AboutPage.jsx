@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { 
-  FaDownload, 
-  FaExternalLinkAlt, 
-  FaGraduationCap, 
+import {
+  FaDownload,
+  FaExternalLinkAlt,
+  FaGraduationCap,
   FaBriefcase,
   FaCode,
   FaMusic,
@@ -10,7 +10,7 @@ import {
   FaChartLine,
   FaUsers,
   FaCalculator,
-  FaArrowRight
+  FaArrowRight,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import resume from "../assets/images/resume.png";
@@ -20,10 +20,27 @@ const AboutPage = () => {
   const [activeSection, setActiveSection] = useState(null);
 
   const skillsData = [
-    { category: "Frontend", skills: ["React", "JavaScript", "CSS", "HTML", "Responsive Design"] },
-    { category: "Backend", skills: ["Node.js", "API Development", "Database Management"] },
-    { category: "Tools", skills: ["Git", "VS Code", "Audio Production", "Project Management"] },
-    { category: "Soft Skills", skills: ["Communication", "Problem Solving", "Team Leadership", "Client Relations"] }
+    {
+      category: "Frontend",
+      skills: ["React", "JavaScript", "CSS", "HTML", "Responsive Design"],
+    },
+    {
+      category: "Backend",
+      skills: ["Node.js", "API Development", "Database Management"],
+    },
+    {
+      category: "Tools",
+      skills: ["Git", "VS Code", "Audio Production", "Project Management"],
+    },
+    {
+      category: "Soft Skills",
+      skills: [
+        "Communication",
+        "Problem Solving",
+        "Team Leadership",
+        "Client Relations",
+      ],
+    },
   ];
 
   const experienceData = [
@@ -33,7 +50,8 @@ const AboutPage = () => {
       period: "2022 - Present",
       type: "Development",
       icon: <FaCode />,
-      description: "Building modern web applications with focus on user experience and performance optimization."
+      description:
+        "Building modern web applications with focus on user experience and performance optimization.",
     },
     {
       title: "Audio Production Specialist",
@@ -41,7 +59,8 @@ const AboutPage = () => {
       period: "2021 - Present",
       type: "Creative",
       icon: <FaMusic />,
-      description: "Delivering high-quality audio solutions for diverse client needs and creative projects."
+      description:
+        "Delivering high-quality audio solutions for diverse client needs and creative projects.",
     },
     {
       title: "Personal Trainer",
@@ -49,7 +68,8 @@ const AboutPage = () => {
       period: "2020 - 2023",
       type: "Health & Fitness",
       icon: <FaDumbbell />,
-      description: "Developed personalized fitness programs and built strong client relationships through results-driven coaching."
+      description:
+        "Developed personalized fitness programs and built strong client relationships through results-driven coaching.",
     },
     {
       title: "Sales Development Representative",
@@ -57,7 +77,8 @@ const AboutPage = () => {
       period: "2019 - 2020",
       type: "Technology Sales",
       icon: <FaChartLine />,
-      description: "Generated qualified leads and managed client relationships in the cybersecurity technology sector."
+      description:
+        "Generated qualified leads and managed client relationships in the cybersecurity technology sector.",
     },
     {
       title: "Program Coordinator",
@@ -65,7 +86,8 @@ const AboutPage = () => {
       period: "2018 - 2019",
       type: "Program Management",
       icon: <FaUsers />,
-      description: "Coordinated wellness programs and managed operations to enhance member experience and engagement."
+      description:
+        "Coordinated wellness programs and managed operations to enhance member experience and engagement.",
     },
     {
       title: "Assistant Store Accountant",
@@ -73,8 +95,9 @@ const AboutPage = () => {
       period: "2017 - 2018",
       type: "Finance",
       icon: <FaCalculator />,
-      description: "Managed financial operations and inventory systems with attention to accuracy and efficiency."
-    }
+      description:
+        "Managed financial operations and inventory systems with attention to accuracy and efficiency.",
+    },
   ];
 
   const educationData = [
@@ -83,31 +106,35 @@ const AboutPage = () => {
       degree: "Bachelor of Science",
       field: "Health and Fitness",
       icon: <FaGraduationCap />,
-      description: "Comprehensive study in health sciences, exercise physiology, and wellness program development."
+      description:
+        "Comprehensive study in health sciences, exercise physiology, and wellness program development.",
     },
     {
       institution: "The Odin Project",
       degree: "Full Stack Web Development",
       field: "Self-Directed Learning",
       icon: <FaCode />,
-      description: "Intensive curriculum covering modern web development technologies and best practices.",
+      description:
+        "Intensive curriculum covering modern web development technologies and best practices.",
       link: "/Posts/the-top-experience",
-      linkText: "Read about my TOP experience"
+      linkText: "Read about my TOP experience",
     },
     {
       institution: "CompTIA A+",
       degree: "IT Fundamentals Certification",
       field: "Hardware & Software",
       icon: <FaCode />,
-      description: "Comprehensive understanding of computer hardware, software, and troubleshooting methodologies."
+      description:
+        "Comprehensive understanding of computer hardware, software, and troubleshooting methodologies.",
     },
     {
       institution: "freeCodeCamp",
       degree: "Web Development Curriculum",
       field: "Continuous Learning",
       icon: <FaCode />,
-      description: "Ongoing education through hands-on projects and comprehensive programming challenges."
-    }
+      description:
+        "Ongoing education through hands-on projects and comprehensive programming challenges.",
+    },
   ];
 
   return (
@@ -120,7 +147,8 @@ const AboutPage = () => {
               Full Stack Developer & Creative Problem Solver
             </h1>
             <p className={styles.heroSubtitle}>
-              Transforming ideas into digital experiences through code, creativity, and strategic thinking.
+              Transforming ideas into digital experiences through code,
+              creativity, and strategic thinking.
             </p>
             <div className={styles.ctaContainer}>
               <a
@@ -159,14 +187,18 @@ const AboutPage = () => {
           </div>
           <div className={styles.summaryContent}>
             <p className={styles.summaryText}>
-              I'm a versatile full stack developer with a unique background spanning technology, healthcare, 
-              and creative industries. My diverse experience has shaped me into a well-rounded professional 
-              who approaches challenges with both technical expertise and human-centered thinking.
+              I'm a versatile full stack developer with a unique background
+              spanning technology, healthcare, and creative industries. My
+              diverse experience has shaped me into a well-rounded professional
+              who approaches challenges with both technical expertise and
+              human-centered thinking.
             </p>
             <p className={styles.summaryText}>
-              I specialize in building modern web applications that prioritize performance, accessibility, 
-              and user experience. My passion for continuous learning drives me to stay current with 
-              emerging technologies while maintaining a strong foundation in proven methodologies.
+              I specialize in building modern web applications that prioritize
+              performance, accessibility, and user experience. My passion for
+              continuous learning drives me to stay current with emerging
+              technologies while maintaining a strong foundation in proven
+              methodologies.
             </p>
           </div>
         </section>
@@ -201,21 +233,27 @@ const AboutPage = () => {
           </div>
           <div className={styles.timeline}>
             {experienceData.map((exp, index) => (
-              <div 
-                key={index} 
-                className={`${styles.timelineItem} ${activeSection === index ? styles.active : ''}`}
-                onClick={() => setActiveSection(activeSection === index ? null : index)}
+              <div
+                key={index}
+                className={`${styles.timelineItem} ${
+                  activeSection === index ? styles.active : ""
+                }`}
+                onClick={() =>
+                  setActiveSection(activeSection === index ? null : index)
+                }
               >
-                <div className={styles.timelineIcon}>
-                  {exp.icon}
-                </div>
+                <div className={styles.timelineIcon}>{exp.icon}</div>
                 <div className={styles.timelineContent}>
                   <div className={styles.timelineHeader}>
                     <h3>{exp.title}</h3>
                     <span className={styles.timelinePeriod}>{exp.period}</span>
                   </div>
-                  <p className={styles.timelineCompany}>{exp.company} • {exp.type}</p>
-                  <p className={styles.timelineDescription}>{exp.description}</p>
+                  <p className={styles.timelineCompany}>
+                    {exp.company} • {exp.type}
+                  </p>
+                  <p className={styles.timelineDescription}>
+                    {exp.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -231,14 +269,16 @@ const AboutPage = () => {
           <div className={styles.educationGrid}>
             {educationData.map((edu, index) => (
               <div key={index} className={styles.educationCard}>
-                <div className={styles.educationIcon}>
-                  {edu.icon}
-                </div>
+                <div className={styles.educationIcon}>{edu.icon}</div>
                 <div className={styles.educationContent}>
                   <h3>{edu.degree}</h3>
-                  <p className={styles.educationInstitution}>{edu.institution}</p>
+                  <p className={styles.educationInstitution}>
+                    {edu.institution}
+                  </p>
                   <p className={styles.educationField}>{edu.field}</p>
-                  <p className={styles.educationDescription}>{edu.description}</p>
+                  <p className={styles.educationDescription}>
+                    {edu.description}
+                  </p>
                   {edu.link && (
                     <Link to={edu.link} className={styles.educationLink}>
                       {edu.linkText} <FaArrowRight />
@@ -254,7 +294,10 @@ const AboutPage = () => {
         <section id="contact" className={styles.ctaSection}>
           <div className={styles.ctaContent}>
             <h2>Ready to Collaborate?</h2>
-            <p>I'm always interested in discussing new opportunities and innovative projects.</p>
+            <p>
+              I'm always interested in discussing new opportunities and
+              innovative projects.
+            </p>
             <div className={styles.ctaButtons}>
               <a
                 href="/homepage/public/Resume_Nick_DenBleyker-4.pdf"

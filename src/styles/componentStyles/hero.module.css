@@ -2,26 +2,39 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--space-2xl, 3rem) var(--container-padding, clamp(1rem, 5vw, 3rem));
-  background: linear-gradient(135deg, var(--clr-primary-10) 0%, var(--clr-primary-2) 100%);
+  padding: var(--space-2xl, 3rem)
+    var(--container-padding, clamp(1rem, 5vw, 3rem));
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-10) 0%,
+    var(--clr-primary-2) 100%
+  );
   text-align: center;
 }
 
-/* Optional: Add subtle background pattern or overlay */
+/* Subtle background pattern */
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 70%, rgba(128, 169, 178, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 30%, rgba(184, 102, 66, 0.1) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 30% 70%,
+      rgba(128, 169, 178, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(184, 102, 66, 0.1) 0%,
+      transparent 50%
+    );
   pointer-events: none;
   z-index: 1;
 }
@@ -31,6 +44,7 @@
   z-index: 2;
 }
 
+/* Main Introduction Section */
 .introduction {
   max-width: min(90vw, 800px);
   margin: 0 auto var(--space-3xl, 4rem);
@@ -47,35 +61,53 @@
 }
 
 .nameContainer h1 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: var(--font-weight-bold, 700);
-  margin-bottom: var(--space-sm, 1rem);
-  background: linear-gradient(135deg, #ffffff 0%, var(--clr-primary-3) 50%, var(--clr-primary-7) 100%);
+  margin-bottom: var(--space-md, 1.5rem);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    var(--clr-primary-3) 50%,
+    var(--clr-primary-7) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeInUp 0.8s ease-out;
+  line-height: 1.2;
 }
 
 .nameContainer h2 {
-  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: var(--font-weight-medium, 500);
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-3) 0%,
+    var(--clr-primary-8) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Description text with better readability */
+/* Description text */
 .descriptionText {
-  max-width: min(65ch, 90vw); /* Optimal reading width */
+  max-width: min(65ch, 90vw);
   margin: 0 auto var(--space-xl, 2rem);
-  font-size: clamp(var(--font-size-lg, 1.125rem), 2.5vw, var(--font-size-xl, 1.25rem));
+  font-size: clamp(
+    var(--font-size-lg, 1.125rem),
+    2.5vw,
+    var(--font-size-xl, 1.25rem)
+  );
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-/* Links container with modern styling */
+/* Call-to-Action Links */
 .introLinks {
   display: flex;
   align-items: center;
@@ -90,9 +122,10 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs, 0.5rem);
-  padding: var(--space-sm, 1rem) var(--space-lg, 2rem);
+  padding: var(--space-md, 1.5rem) var(--space-xl, 2.5rem);
   border-radius: 50px;
-  font-weight: var(--font-weight-medium, 500);
+  font-weight: var(--font-weight-semibold, 600);
+  font-size: var(--font-size-base, 1rem);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
@@ -101,13 +134,17 @@
 
 /* Primary CTA button */
 .introLinks a.primary {
-  background: linear-gradient(135deg, var(--clr-primary-3) 0%, var(--clr-primary-8) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-3) 0%,
+    var(--clr-primary-8) 100%
+  );
   color: white;
   box-shadow: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
 }
 
 .introLinks a.primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-xl, 0 20px 25px -5px rgb(0 0 0 / 0.1));
   filter: brightness(1.1);
 }
@@ -123,7 +160,15 @@
 .introLinks a.secondary:hover {
   border-color: var(--clr-primary-3);
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+/* Social Links */
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-lg, 2rem) 0;
+  animation: fadeInUp 0.8s ease-out 0.7s both;
 }
 
 /* Skills section */
@@ -134,39 +179,36 @@
 }
 
 .skills h3 {
-  font-size: clamp(var(--font-size-xl, 1.25rem), 3vw, var(--font-size-2xl, 1.5rem));
-  margin-bottom: var(--space-lg, 2rem);
+  font-size: clamp(
+    var(--font-size-xl, 1.25rem),
+    3vw,
+    var(--font-size-2xl, 1.5rem)
+  );
+  margin-bottom: var(--space-xl, 2rem);
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
+  font-weight: var(--font-weight-semibold, 600);
 }
 
-/* Skills grid/list styling */
-.skillsList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-sm, 1rem);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skillsList li {
-  padding: var(--space-xs, 0.5rem) var(--space-md, 1.5rem);
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--space-xl, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
   font-size: var(--font-size-sm, 0.875rem);
-  font-weight: var(--font-weight-medium, 500);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs, 0.5rem);
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.skillsList li:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--clr-primary-3);
-  transform: translateY(-2px);
+.scrollIndicator:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Animations */
@@ -181,23 +223,12 @@
   }
 }
 
-/* Scroll indicator */
-.scrollIndicator {
-  position: absolute;
-  bottom: var(--space-lg, 2rem);
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: var(--font-size-sm, 0.875rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs, 0.5rem);
-  animation: bounce 2s infinite;
-}
-
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   40% {
@@ -213,34 +244,37 @@
   .hero {
     min-height: 100vh;
     padding: var(--space-xl, 2rem) var(--space-md, 1.5rem);
-    text-align: center;
   }
-  
+
   .introduction {
     gap: var(--space-lg, 2rem);
     margin-bottom: var(--space-2xl, 3rem);
   }
-  
+
+  .nameContainer h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: var(--space-sm, 1rem);
+  }
+
+  .nameContainer h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
   .introLinks {
     flex-direction: column;
     gap: var(--space-md, 1.5rem);
     width: 100%;
   }
-  
+
   .introLinks a {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
     justify-content: center;
     padding: var(--space-md, 1.5rem) var(--space-lg, 2rem);
   }
-  
-  .skillsList {
-    gap: var(--space-xs, 0.5rem);
-  }
-  
-  .skillsList li {
-    padding: var(--space-xs, 0.5rem) var(--space-sm, 1rem);
-    font-size: var(--font-size-sm, 0.875rem);
+
+  .scrollIndicator {
+    bottom: var(--space-lg, 2rem);
   }
 }
 
@@ -248,7 +282,7 @@
   .hero {
     padding: var(--space-2xl, 3rem) var(--space-lg, 2rem);
   }
-  
+
   .introduction {
     max-width: 700px;
   }
@@ -259,9 +293,17 @@
   .hero {
     padding: var(--space-3xl, 4rem) var(--space-2xl, 3rem);
   }
-  
+
   .introduction {
     max-width: 900px;
+  }
+
+  .nameContainer h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+
+  .nameContainer h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
   }
 }
 
@@ -271,9 +313,14 @@
   .scrollIndicator {
     animation: none;
   }
-  
+
   .introLinks a:hover,
-  .skillsList li:hover {
+  .scrollIndicator:hover {
     transform: none;
   }
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
 }
