@@ -26,12 +26,12 @@ const Hero = () => {
       </section>
 
       <section className={styles.skills}>
-        <div>
+        {/* <div>
           <header>
             <h2>My Skills</h2>
           </header>
-          <MySkills />
-        </div>
+          
+        </div> */}
         <br></br>
       </section>
     </div>

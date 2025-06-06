@@ -100,7 +100,7 @@
   display: none;
   flex-direction: column;
   justify-content: center; /* Changed from space-between */
-  gap: 4px; /* Add consistent spacing */
+  gap: 6px; /* Add consistent spacing */
   width: 2rem;
   height: 1.5rem;
   cursor: pointer;
@@ -132,7 +132,7 @@
   position: absolute;
   top: 100%;
   right: 1rem;
-  background-color: var(--clr-primary-2);
+  background-color: var(--clr-primary-8);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -140,7 +140,6 @@
   gap: 1rem;
   padding: 1rem;
   z-index: 1100;
-  box-shadow: var(--hover-shadow);
   min-width: 160px;
   animation: slideDown 0.3s ease-out;
 }

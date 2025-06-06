@@ -1,41 +1,176 @@
+/* Footer Styling - Modern & Responsive */
 footer {
   background-color: var(--clr-primary-2);
-  height: 20vh;
+  margin-top: auto; /* Push footer to bottom of page */
+  width: 100%;
+  min-height: fit-content; /* Remove fixed height constraint */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
 }
 
 .footerBlocksContainer {
-  margin: var(--margin);
+  max-width: var(--content-max-width, min(90vw, 1200px));
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: var(--padding);
-  height: 20vh;
+  align-items: flex-start;
+  padding: var(--space-2xl, 3rem) var(--container-padding, clamp(1rem, 5vw, 3rem));
+  gap: var(--space-xl, 2rem);
+  min-height: auto; /* Remove fixed height */
 }
 
 .footerLeft {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: var(--space-md, 1.5rem);
+  flex: 1;
+  min-width: 200px;
 }
 
 .footerCenter {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.footerLinksContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.link {
-  border-radius: 5px;
-  padding: 5px 0;
+  gap: var(--space-md, 1.5rem);
+  flex: 1;
+  min-width: 200px;
 }
 
 .footerRight {
   display: flex;
-  gap: 10px;
   flex-direction: column;
+  gap: var(--space-md, 1.5rem);
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Footer sections headers */
+.footerLeft h3,
+.footerCenter h3,
+.footerRight h3 {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-bold, 700);
+  margin-bottom: var(--space-sm, 1rem);
+  color: white;
+}
+
+/* Links container with better spacing */
+.footerLinksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm, 1rem);
+}
+
+/* Individual link styling */
+.link {
+  border-radius: 6px;
+  padding: var(--space-xs, 0.5rem) var(--space-sm, 1rem);
+  transition: all 0.2s ease;
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  font-size: var(--font-size-base, 1rem);
+  line-height: 1.5;
+  position: relative;
+  overflow: hidden;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+}
+
+.link:focus {
+  outline: 2px solid var(--clr-primary-3, #80a9b2);
+  outline-offset: 2px;
+}
+
+/* Social media links or icon links */
+.footerRight .link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs, 0.5rem);
+}
+
+/* Footer bottom section for copyright, etc. */
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-lg, 2rem) var(--container-padding, clamp(1rem, 5vw, 3rem));
+  text-align: center;
+  color: rgb(160, 160, 160);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  footer {
+    min-height: auto;
+  }
+  
+  .footerBlocksContainer {
+    flex-direction: column;
+    gap: var(--space-xl, 2rem);
+    padding: var(--space-xl, 2rem) var(--space-md, 1.5rem);
+    text-align: left;
+  }
+  
+  .footerLeft,
+  .footerCenter,
+  .footerRight {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  /* Stack links horizontally on mobile for better space usage */
+  .footerLinksContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-xs, 0.5rem);
+  }
+  
+  .link {
+    padding: var(--space-xs, 0.5rem);
+    text-align: center;
+    font-size: var(--font-size-sm, 0.875rem);
+  }
+  
+  .link:hover {
+    transform: translateY(-2px);
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .footerBlocksContainer {
+    padding: var(--space-2xl, 3rem) var(--space-lg, 2rem);
+    gap: var(--space-lg, 2rem);
+  }
+  
+  .footerLeft,
+  .footerCenter,
+  .footerRight {
+    min-width: 180px;
+  }
+}
+
+/* Large screens - more breathing room */
+@media screen and (min-width: 1200px) {
+  .footerBlocksContainer {
+    padding: var(--space-3xl, 4rem) var(--space-2xl, 3rem);
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  footer {
+    background-color: var(--clr-primary-2);
+  }
+  
+  .link {
+    color: rgb(220, 220, 220);
+  }
+  
+  .link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
 }
