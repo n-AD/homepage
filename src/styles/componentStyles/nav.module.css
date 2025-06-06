@@ -1,167 +1,276 @@
-.navbar {
-  width: 100%;
-  padding: 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--clr-primary-2);
-  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
-  position: relative; /* Add this line */
-}
-
-.sticky {
-  position: sticky;
+/* Base Navigation Styles */
+.navContainer {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
+.navContainer.visible {
+  transform: translateY(0);
+}
+
+.navContainer.hidden {
+  transform: translateY(-100%);
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between; /* Push children apart */
+  padding: 0.75rem 1rem;
+  width:100%
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* space between nav and menu button */
+}
+
+/* Logo Section */
 .headerLinksContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 5vw;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  flex-shrink: 0;
 }
 
-.navRoot {
+.logoLink {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
 }
 
 .logo {
-  width: clamp(40px, 5vw, 75px);
-  height: auto;
-  border-radius: 50%;
+  height: 40px;
+  width: auto;
+  margin-right: 0.75rem;
 }
 
-.rootLink {
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Desktop Navigation */
+.desktopNav {
   display: flex;
+  gap: 2rem;
   align-items: center;
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  gap: 1rem;
-  color: white;
-  text-decoration: none;
-}
-/*lol this is the code that makes the yellow line zoom across the screen when I hover over my name....i might leave it */
-.rootLink::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background-color: var(--clr-primary-3);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease-in-out;
-}
-
-.rootLink:hover::after,
-.active::after {
-  transform: scaleX(1);
-}
-.navLinks {
-  display: flex;
-  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .navLink {
   position: relative;
-  padding: 0.5rem 1rem;
   text-decoration: none;
-  color: white;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s ease;
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
 }
 
-.navLink::after {
-  content: "";
+.navLink:hover {
+  color: #60a5fa;
+}
+
+.navLink.active {
+  color: #60a5fa;
+}
+
+.navLink.active::after {
+  content: '';
   position: absolute;
+  bottom: -2px;
   left: 0;
-  bottom: -4px;
-  width: 100%;
+  right: 0;
   height: 2px;
-  background-color: var(--clr-primary-3);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease-in-out;
+  background: #60a5fa;
+  border-radius: 1px;
 }
 
-.navLink:hover::after,
-.active::after {
-  transform: scaleX(1);
-}
-
-/* ---------- Hamburger Menu Styles ---------- */
-.hamburger {
+/* Mobile Menu Button */
+.menuButton {
   display: none;
   flex-direction: column;
-  justify-content: center; /* Changed from space-between */
-  gap: 6px; /* Add consistent spacing */
-  width: 2rem;
-  height: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
   cursor: pointer;
-  z-index: 1100;
-  margin-left: auto;
+  padding: 0;
+  gap: 4px;
 }
-.hamburger span {
-  background-color: white;
-  height: 3px;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
+
+.hamburgerLine {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
-.hamburger:hover span {
-  background-color: var(--clr-primary-3);
+
+.menuButton.menuOpen .hamburgerLine:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 3px);
 }
-.hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
-}
-.hamburger.open span:nth-child(2) {
+
+.menuButton.menuOpen .hamburgerLine:nth-child(2) {
   opacity: 0;
-}
-.hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
+  transform: scaleX(0);
 }
 
+.menuButton.menuOpen .hamburgerLine:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
 
-/* Mobile nav menu */
-.mobileNav {
+/* Mobile Menu */
+.menuOverlay {
+  display: none;
+}
+
+.mobileMenu {
   position: absolute;
   top: 100%;
   right: 1rem;
-  background-color: var(--clr-primary-8);
+  width: 200px;
+  background: rgba(20, 20, 20, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-  padding: 1rem;
-  z-index: 1100;
-  min-width: 160px;
-  animation: slideDown 0.3s ease-out;
+  padding: 0.5rem 0;
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1002;
 }
 
+.mobileNavLink {
+  display: block;
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobileNavLink:hover {
+  color: #60a5fa;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: #60a5fa;
+}
+
+.mobileNavLink.active {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.1);
+  border-left-color: #60a5fa;
+}
+
+/* Animations */
 @keyframes slideDown {
-  from {
+  from { 
     opacity: 0;
-    transform: translateY(-10%);
+    transform: translateY(-10px);
   }
-  to {
+  to { 
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ---------- Responsive Behavior ---------- */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .navLinks {
+  .desktopNav {
     display: none;
   }
-
-  .hamburger {
+  
+  .menuButton {
     display: flex;
+  }
+  
+  .logoText {
+    font-size: 1.125rem;
+  }
+  
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+  
+  .headerLinksContainer {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileMenu {
+    right: 0.5rem;
+    width: 180px;
+  }
+  
+  .logoText {
+    display: none;
+  }
+  
+  .logo {
+    margin-right: 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .navContainer,
+  .navLink,
+  .hamburgerLine,
+  .mobileMenu {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Focus styles for keyboard navigation
+.logoLink:focus,
+.navLink:focus,
+.menuButton:focus,
+.mobileNavLink:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+} */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navContainer {
+    background: black;
+    border-bottom: 2px solid white;
+  }
+  
+  .navLink,
+  .mobileNavLink {
+    color: white;
+  }
+  
+  .navLink:hover,
+  .mobileNavLink:hover,
+  .navLink.active,
+  .mobileNavLink.active {
+    color: #00ffff;
   }
 }

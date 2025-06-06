@@ -136,9 +136,9 @@ nav,
   z-index: 1000;
   width: 100%;
   height: var(--nav-height);
-  background: rgba(15, 15, 15, 0.9);
-  backdrop-filter: var(--nav-blur);
-  border-bottom: 1px solid var(--clr-border);
+  /* background: rgba(15, 15, 15, 0.9); */
+  /* backdrop-filter: var(--nav-blur); */
+  /* border-bottom: 1px solid var(--clr-border); */
   display: flex;
   align-items: center;
   justify-content: space-between;
