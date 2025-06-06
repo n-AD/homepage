@@ -1,8 +1,41 @@
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/componentStyles/hero.module.css";
 import Links from "./AllLinks";
 import MySkills from "./MySkills";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToProjects = (e) => {
+    e.preventDefault();
+    // Scroll to top first
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Navigate after scroll completes
+    setTimeout(() => {
+      navigate("/projects");
+    }, 100);
+  };
+
+  const handleNavigateToContact = (e) => {
+    e.preventDefault();
+    // Scroll to top first
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Navigate after scroll completes
+    setTimeout(() => {
+      navigate("/about");
+    }, 100);
+  };
+
+  const handleScrollClick = () => {
+    const nextSection =
+      document.querySelector("#projects") ||
+      document.querySelector("main") ||
+      document.querySelector('[data-section="projects"]');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={styles.hero}>
       {/* Main Introduction Section */}
@@ -18,13 +51,13 @@ const Hero = () => {
           together.
         </p>
 
-        <div className={styles.socialLinks}>
-          <Links />
-        </div>
-
         {/* Call-to-Action Links */}
         <div className={styles.introLinks}>
-          <a href="#projects" className={styles.primary}>
+          <a
+            href="/projects"
+            className={styles.primary}
+            onClick={handleNavigateToProjects}
+          >
             <svg
               width="20"
               height="20"
@@ -38,7 +71,11 @@ const Hero = () => {
             </svg>
             View My Work
           </a>
-          <a href="#about" className={styles.secondary}>
+          <a
+            href="/about"
+            className={styles.secondary}
+            onClick={handleNavigateToContact}
+          >
             <svg
               width="20"
               height="20"
@@ -55,15 +92,19 @@ const Hero = () => {
         </div>
 
         {/* Social Links */}
-      </section>
-      {/* Skills Section
-       <section className={styles.skills}>
-        <h3>Technologies & Skills</h3>
-        <MySkills />
+        <div className={styles.socialLinks}>
+          <Links />
+        </div>
       </section>
 
-    
-      <div className={styles.scrollIndicator}>
+      {/* Skills Section */}
+      {/* <section className={styles.skills}>
+        <h3>Technologies & Skills</h3>
+        <MySkills />
+      </section> */}
+
+      {/* Scroll Indicator */}
+      {/* <div className={styles.scrollIndicator} onClick={handleScrollClick}>
         <span>Scroll to explore</span>
         <svg
           width="16"
