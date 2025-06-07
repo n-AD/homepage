@@ -6,7 +6,7 @@ import logo from "../assets/images/audiodidacts-logo.png";
 const Nav = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const Paths = ["/Posts", "/Projects", "/About"];
+  const Paths = ["/", "/Posts", "/Projects", "/About"]; // Added "/" for home
   const isActive = Paths.some((path) => location.pathname.startsWith(path));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -105,13 +105,13 @@ const Nav = () => {
         <div className={styles.navRight}>
           <div className={styles.desktopNav}>
             <NavLink
-              to="/Posts"
+              to="/"
               className={({ isActive }) =>
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }
-              onClick={handleNavigation("/Posts")}
+              onClick={handleNavigation("/")}
             >
-              Posts
+              Home
             </NavLink>
             <NavLink
               to="/Projects"
@@ -121,6 +121,15 @@ const Nav = () => {
               onClick={handleNavigation("/Projects")}
             >
               Projects
+            </NavLink>
+            <NavLink
+              to="/Posts"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }
+              onClick={handleNavigation("/Posts")}
+            >
+              Posts
             </NavLink>
             <NavLink
               to="/About"
@@ -152,6 +161,15 @@ const Nav = () => {
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className={styles.mobileMenu}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${styles.mobileNavLink} ${isActive ? styles.active : ""}`
+            }
+            onClick={handleNavigation("/")}
+          >
+            Home
+          </NavLink>
           <NavLink
             to="/Posts"
             className={({ isActive }) =>
