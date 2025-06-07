@@ -41,14 +41,13 @@ const Hero = () => {
       {/* Main Introduction Section */}
       <section className={styles.introduction}>
         <div className={styles.nameContainer}>
-          <h1>Lifelong Learner, Problem Solver</h1>
-          <h2>Full Stack Developer</h2>
+          <h1>Technical Writer</h1>
+          <h2>Creating Documentation That Saves Time</h2>
+          <h2>Reduces Errors</h2>
+          <h2>and Scales Teams</h2>
         </div>
-
         <p className={styles.descriptionText}>
-          I love learning new things, solving complex puzzles, and applying what
-          I know to improve the world around me. Let's build something amazing
-          together.
+         I create clear, actionable documentation tailored to users, developers, and stakeholders. Whether it’s API docs, internal SOPs, how-to guides, or knowledge bases, I turn information into understanding—and frustration into flow.
         </p>
 
         {/* Call-to-Action Links */}

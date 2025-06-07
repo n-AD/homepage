@@ -144,11 +144,10 @@ const AboutPage = () => {
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              Full Stack Developer & Creative Problem Solver
+              Technical Writer & Creative Problem Solver
             </h1>
             <p className={styles.heroSubtitle}>
-              Transforming ideas into digital experiences through code,
-              creativity, and strategic thinking.
+              Thanks for checking out my website! 
             </p>
             <div className={styles.ctaContainer}>
               <a
@@ -204,7 +203,7 @@ const AboutPage = () => {
         </section>
 
         {/* Skills Grid */}
-        <section className={styles.skillsSection}>
+        {/* <section className={styles.skillsSection}>
           <div className={styles.sectionHeader}>
             <h2>Core Competencies</h2>
             <div className={styles.sectionLine}></div>
@@ -223,7 +222,7 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Experience Timeline */}
         <section className={styles.experienceSection}>
