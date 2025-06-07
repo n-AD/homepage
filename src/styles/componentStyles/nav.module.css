@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between; /* Push children apart */
   padding: 0.75rem 1rem;
-  width:100%  
+  width: 100%;
 }
 
 .navRight {
@@ -91,7 +91,7 @@
 }
 
 .navLink.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -126,7 +126,7 @@
 }
 
 .menuButton.menuOpen .hamburgerLine:nth-child(1) {
-  transform: rotate(45deg) translate(3px, 3px);
+  transform: rotate(45deg) translate(5px, 3px);
 }
 
 .menuButton.menuOpen .hamburgerLine:nth-child(2) {
@@ -135,7 +135,7 @@
 }
 
 .menuButton.menuOpen .hamburgerLine:nth-child(3) {
-  transform: rotate(-45deg) translate(3px, -3px);
+  transform: rotate(-45deg) translate(5px, -3px);
 }
 
 /* Mobile Menu */
@@ -185,11 +185,11 @@
 
 /* Animations */
 @keyframes slideDown {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(-10px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -200,21 +200,21 @@
   .desktopNav {
     display: none;
   }
-  
+
   .menuButton {
     display: flex;
   }
-  
+
   .logoText {
     font-size: 1.125rem;
   }
-  
-.navContent {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-}
-  
+
+  .navContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+
   .headerLinksContainer {
     flex: 1;
   }
@@ -225,11 +225,11 @@
     right: 0.5rem;
     width: 180px;
   }
-  
+
   .logoText {
     display: none;
   }
-  
+
   .logo {
     margin-right: 0;
   }
@@ -261,12 +261,12 @@
     background: black;
     border-bottom: 2px solid white;
   }
-  
+
   .navLink,
   .mobileNavLink {
     color: white;
   }
-  
+
   .navLink:hover,
   .mobileNavLink:hover,
   .navLink.active,

@@ -129,7 +129,7 @@ const Nav = () => {
               }
               onClick={handleNavigation("/About")}
             >
-              About
+              About Me
             </NavLink>
           </div>
 

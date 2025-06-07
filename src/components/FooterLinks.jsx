@@ -1,9 +1,9 @@
-import styles from "../styles/componentStyles/allLinks.module.css";
+import styles from "../styles/componentStyles/footerLinks.module.css";
 import githubIcon from "../assets/images/github.png";
 import linkedinIcon from "../assets/images/linkedin.png";
 import emailIcon from "../assets/images/email.png";
 
-const Links = () => {
+const FooterLinks = () => {
   const links = [
     {
       href: "https://github.com/n-AD",
@@ -29,11 +29,7 @@ const Links = () => {
   ];
 
   return (
-    <nav
-      className={styles.linkIcons}
-      role="navigation"
-      aria-label="Social links"
-    >
+    <div className={styles.footerSocialLinks}>
       {links.map((link, index) => (
         <a
           key={index}
@@ -42,15 +38,14 @@ const Links = () => {
           rel={
             link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"
           }
-          className={styles.linkIcon}
-          aria-label={link.label}
+          className={styles.footerSocialLink}
           title={link.title}
         >
           <img src={link.icon} alt={link.alt} />
         </a>
       ))}
-    </nav>
+    </div>
   );
 };
 
-export default Links;
+export default FooterLinks;

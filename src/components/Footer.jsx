@@ -1,48 +1,52 @@
-import { Link } from "react-router-dom";
-
-import AllLinks from "../components/AllLinks";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import FooterLinks from "../components/FooterLinks";
 import styles from "../styles/componentStyles/footer.module.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  const scrollToTop = () => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
+  };
 
   return (
-    <footer>
-      <div className={styles.footerBlocksContainer}>
-        <div className={styles.footerLeft}>
-          <div>
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerContent}>
+          <div className={styles.footerLeft}>
             <h3>Nick DenBleyker</h3>
-            <div className={styles.descriptionTextFooter}>
-              Thanks for stopping by!
+            <p>Thanks for stopping by!</p>
+          </div>
+
+          <div className={styles.footerCenter}>
+            <div className={styles.footerLinks}>
+              <Link to="/Posts" onClick={scrollToTop}>
+                Posts
+              </Link>
+              <Link to="/Projects" onClick={scrollToTop}>
+                Projects
+              </Link>
+              <Link to="/About" onClick={scrollToTop}>
+                About Me
+              </Link>
             </div>
           </div>
-          <div>
-            &copy;
-            <span id="year">
-              {currentYear}-Present Nick DenBleyker. All Rights Reserved.
-            </span>
+
+          <div className={styles.footerRight}>
+            <FooterLinks />
           </div>
         </div>
 
-        <div className={styles.footerCenter}>
-          Pages
-          <div className={styles.footerLinksContainer}>
-            <Link className={styles.link} to="/Posts">
-              Posts
-            </Link>
-            <Link className={styles.link} to="/Projects">
-              Projects
-            </Link>
-            <Link className={styles.link} to="/About">
-              About
-            </Link>
-          </div>
-        </div>
-        <div className={styles.footerRight}>
-          <div>Get in touch</div>
-          <div>
-            <AllLinks />
-          </div>
+        <div className={styles.footerBottom}>
+          <p>&copy; {currentYear} Nick DenBleyker. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

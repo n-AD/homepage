@@ -41,60 +41,72 @@ const Hero = () => {
       {/* Main Introduction Section */}
       <section className={styles.introduction}>
         <div className={styles.nameContainer}>
-          <h1>Technical Writer</h1>
-          <h2>Creating Documentation That Saves Time</h2>
-          <h2>Reduces Errors</h2>
-          <h2>and Scales Teams</h2>
-        </div>
-        <p className={styles.descriptionText}>
-         I create clear, actionable documentation tailored to users, developers, and stakeholders. Whether it’s API docs, internal SOPs, how-to guides, or knowledge bases, I turn information into understanding—and frustration into flow.
-        </p>
-
-        {/* Call-to-Action Links */}
-        <div className={styles.introLinks}>
-          <a
-            href="/projects"
-            className={styles.primary}
-            onClick={handleNavigateToProjects}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-            </svg>
-            View My Work
-          </a>
-          <a
-            href="/about"
-            className={styles.secondary}
-            onClick={handleNavigateToContact}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            Get In Touch
-          </a>
-        </div>
-
-        {/* Social Links */}
-        <div className={styles.socialLinks}>
-          <Links />
+          {/* <h1>Read Less</h1> */}
+          {/* <h1>Do More</h1> */}
+          {/* <h1>Sharp Docs, Smooth Ops</h1> */}
+          {/* <h1>Understand. Execute. Repeat.</h1> */}
+          <h1>
+            Open Docs,
+            <br />
+            Close Tickets
+          </h1>
+          {/* <h1>Read Less, Do More</h1> */}
+          <h2>Cut Down Training Time</h2>
+          <h2>Reduce Errors</h2>
+          <h2>Scale your Team</h2>
+          {/* Social Links */}
+          <div className={styles.socialLinks}>
+            <Links />
+          </div>
         </div>
       </section>
+
+      <p className={styles.descriptionText}>
+        I specialize in technical documentation that empowers developers, teams,
+        and end users. From API references and internal SOPs to onboarding
+        guides and knowledge bases, I build systems that turn tribal knowledge
+        into accessible tools.
+      </p>
+
+      {/* Call-to-Action Links */}
+      <div className={styles.introLinks}>
+        <a
+          href="/projects"
+          className={styles.primary}
+          onClick={handleNavigateToProjects}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          View My Work
+        </a>
+        <a
+          href="/about"
+          className={styles.secondary}
+          onClick={handleNavigateToContact}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          About Me
+        </a>
+      </div>
 
       {/* Skills Section */}
       {/* <section className={styles.skills}>
