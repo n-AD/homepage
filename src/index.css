@@ -14,6 +14,7 @@
   --clr-primary-8: #5f64a4;
   --clr-primary-9: #7895cd;
   --clr-primary-10: #0f0f0f; /* Darker background for better contrast */
+  --clr-primary-11: whitesmoke; /* Darker background for better contrast */
 
   /* Additional modern colors */
   --clr-accent: #64ffda;
@@ -37,7 +38,7 @@
 
   /* Container spacing */
   --container-padding: clamp(0.5rem, 1vw, 1rem);
-  --section-spacing: clamp(2rem, 8vw, 6rem);
+  --section-spacing: clamp(3rem, 8vw, 6rem);
   --content-max-width: min(90vw, 1200px);
   --page-width-padding: clamp(2rem, 6vw, 4rem) clamp(0.5rem, 3vw, 2rem)
 

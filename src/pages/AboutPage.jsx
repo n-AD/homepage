@@ -21,7 +21,7 @@ const AboutPage = () => {
       period: "2022 - Present",
       type: "Development",
       description:
-        "Building modern web applications with focus on user experience and performance optimization.",
+        "Build modern web applications with focus on user experience and performance optimization.",
     },
     {
       title: "Audio Production",
@@ -72,15 +72,13 @@ const AboutPage = () => {
     ],
     tools: [
       "VS Code",
-      "Figma",
       "Postman",
-      "Docker",
       "AWS",
-      "Notion",
       "Slack",
-      "Jira",
+      "Zoho",
       "Google Workspace",
-      "Terminal",
+      "Microsoft Suite",
+      "Dev.io",
     ],
     writing: [
       "Technical Documentation",
@@ -94,11 +92,11 @@ const AboutPage = () => {
 
   const booksData = [
     {
-      title: "Don't Make Me Think",
-      author: "Steve Krug",
-      category: "UX/Design",
+      title: "Comptia A+ Study Guide",
+      author: "Andrew Hutz and Travis A. Everett",
+      category: "IT Textbook",
       description:
-        "Essential principles of intuitive web usability and design.",
+        "An essential guide to IT basics, I read the book a few years ago and am currently reviewing the content to receive the associated IT certification.",
     },
     {
       title: "The Pragmatic Programmer",
@@ -108,30 +106,25 @@ const AboutPage = () => {
         "Timeless techniques for writing better, more maintainable code.",
     },
     {
-      title: "Atomic Habits",
-      author: "James Clear",
-      category: "Productivity",
-      description: "Building systems for continuous learning and improvement.",
-    },
-    {
-      title: "Clean Code",
-      author: "Robert C. Martin",
-      category: "Development",
+      title: "Mark of the Fool",
+      author: "J.M. Clarke",
+      category: "Lit-RPG Fiction",
       description:
-        "Best practices for writing readable, maintainable software.",
+        "I found this to be one of the most relatable characters in a fantasy book that I've enjoyed in a long time.",
     },
     {
-      title: "The Elements of Style",
-      author: "Strunk & White",
-      category: "Writing",
-      description: "Fundamental principles of clear, effective writing.",
+      title: "Super Gut",
+      author: "William Davis MD",
+      category: "Health",
+      description:
+        "An interesting perspective on gut health and the microbiome. As well as methods to improve it and reduce the effects of some digestive chronic health conditions.",
     },
     {
-      title: "Made to Stick",
-      author: "Chip Heath & Dan Heath",
-      category: "Communication",
-      description: "How to make ideas memorable and impactful.",
-    },
+      title: "Beware of Chicken",
+      author: "Casualfarmer",
+      category: "Lit-RPG Fiction",
+      description: "A low stakes farming adventure, with tons of kung-fu along the way.",
+    }
   ];
 
   return (

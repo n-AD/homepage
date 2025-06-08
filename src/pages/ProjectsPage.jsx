@@ -1,5 +1,5 @@
 import styles from "../styles/pageStyles/projectsPage.module.css";
-import projects from "../assets/data/projects.json";
+import projects from "../assets/data/projects.jsx";
 import ProjectCards from "../components/ProjectCards.jsx";
 
 const ProjectsPage = () => {

@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProjectLinks from "../components/ProjectLinks";
-import projects from "../assets/data/projects.json";
+import projects from "../assets/data/projects.jsx";
 import styles from "../styles/pageStyles/singleProjectPage.module.css";
 
 const SingleProjectPage = () => {
