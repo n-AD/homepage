@@ -1,5 +1,6 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle"; // Add this import
 import styles from "../styles/componentStyles/nav.module.css";
 import logo from "../assets/images/audiodidacts-logo.png";
 
@@ -88,7 +89,7 @@ const Nav = () => {
       aria-label="Main navigation"
     >
       <div className={styles.navContent}>
-        {/* Left: Logo */}
+        {/* Left: Logo + Theme Toggle */}
         <div className={styles.headerLinksContainer}>
           <NavLink
             to="/"
@@ -99,6 +100,10 @@ const Nav = () => {
             <img src={logo} alt="Audiodidacts Logo" className={styles.logo} />
             <span className={styles.logoText}>Nick DenBleyker</span>
           </NavLink>
+          {/* Theme Toggle next to name */}
+          <div className={styles.themeToggleContainer}>
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Right: Desktop Navigation & Mobile Toggle */}
@@ -197,6 +202,12 @@ const Nav = () => {
           >
             About
           </NavLink>
+          
+          {/* Theme toggle in mobile menu too */}
+          <div className={styles.mobileThemeToggle}>
+            <span className={styles.themeLabel}>Theme</span>
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </nav>

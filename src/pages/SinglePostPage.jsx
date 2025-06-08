@@ -1,15 +1,27 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import posts from "../assets/data/posts.jsx";
+import { loadPostBySlug } from "../utils/markdownLoader.js";
 import styles from "../styles/pageStyles/singlePostPage.module.css";
 
 const SinglePostPage = () => {
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [readingProgress, setReadingProgress] = useState(0);
 
-  // Scroll to top of webpage when component mounts
+  const { slug } = useParams();
+
+  // Load post data
   useEffect(() => {
+    const loadPost = async () => {
+      setLoading(true);
+      const postData = await loadPostBySlug(slug);
+      setPost(postData);
+      setLoading(false);
+    };
+
+    loadPost();
     window.scrollTo(0, 0);
-  }, []);
+  }, [slug]);
 
   // Track reading progress
   useEffect(() => {
@@ -24,8 +36,13 @@ const SinglePostPage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const { slug } = useParams();
-  const post = posts.find((post) => post.slug === slug);
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <h2>Loading post...</h2>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -38,13 +55,9 @@ const SinglePostPage = () => {
     );
   }
 
+  // Calculate estimated read time from markdown content
   const estimatedReadTime = Math.ceil(
-    post.content.reduce((acc, section) => {
-      if (section.type === "paragraph") {
-        return acc + section.text.split(" ").length;
-      }
-      return acc;
-    }, 0) / 200 // Average reading speed
+    post.content.split(' ').length / 200 // Average reading speed
   );
 
   return (
@@ -124,93 +137,22 @@ const SinglePostPage = () => {
           {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
         </header>
 
-        {/* Article Content */}
+        {/* Article Content - Rendered from Markdown */}
         <section className={styles.postContent}>
-          {post.content.map((section, index) => {
-            switch (section.type) {
-              case "paragraph":
-                return (
-                  <p key={index} className={styles.paragraph}>
-                    {section.text}
-                  </p>
-                );
-              case "image":
-                return (
-                  <figure key={index} className={styles.imageContainer}>
-                    <img
-                      src={section.src}
-                      alt={section.alt}
-                      className={styles.image}
-                      loading="lazy"
-                    />
-                    {section.caption && (
-                      <figcaption className={styles.imageCaption}>
-                        {section.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                );
-              case "header":
-                return (
-                  <h2 key={index} className={styles.sectionHeader}>
-                    {section.text}
-                  </h2>
-                );
-              case "quote":
-                return (
-                  <blockquote key={index} className={styles.blockquote}>
-                    <p>{section.text}</p>
-                    {section.author && (
-                      <cite className={styles.quoteAuthor}>
-                        — {section.author}
-                      </cite>
-                    )}
-                  </blockquote>
-                );
-              case "list":
-                return (
-                  <ul key={index} className={styles.list}>
-                    {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className={styles.listItem}>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                );
-              default:
-                return null;
-            }
-          })}
+          <div 
+            className={styles.markdownContent}
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </section>
 
         {/* Article Footer */}
-        {/* <footer className={styles.postFooter}>
-          {
-            <div className={styles.shareSection}>
-              <h3>Share this post</h3>
-              <div className={styles.shareButtons}>
-                <button
-                  className={styles.shareButton}
-                  onClick={() =>
-                    navigator.share?.({
-                      title: post.title,
-                      url: window.location.href,
-                    })
-                  }
-                >
-                  📤 Share
-                </button>
-              </div>
-            </div>
-          }
-
-          
+        <footer className={styles.postFooter}>
           <div className={styles.navigationSection}>
             <Link to="/posts" className={styles.backToPosts}>
               ← View All Posts
             </Link>
           </div>
-        </footer> */}
+        </footer>
       </div>
     </article>
   );

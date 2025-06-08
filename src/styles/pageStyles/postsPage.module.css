@@ -442,6 +442,54 @@
   }
 }
 
+/* Add these to your existing CSS file */
+
+.loading {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.loading h2 {
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-2xl, 3rem);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.noResults h3 {
+  font-size: var(--font-size-xl, 1.25rem);
+  margin-bottom: var(--space-md, 1.5rem);
+  color: white;
+}
+
+.noResults p {
+  font-size: var(--font-size-base, 1rem);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading h2 {
+  animation: pulse 2s ease-in-out infinite;
+}
+
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .postPageContainer {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

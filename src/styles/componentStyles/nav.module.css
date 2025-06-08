@@ -183,6 +183,49 @@
   border-left-color: #60a5fa;
 }
 
+/* Add these to your existing nav.module.css */
+
+/* Theme toggle container next to logo */
+.themeToggleContainer {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile theme toggle in dropdown menu */
+.mobileThemeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.5rem;
+}
+
+.themeLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .headerLinksContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Reduce gap on mobile */
+  }
+  
+  .themeToggleContainer {
+    margin-left: 0.5rem; /* Less margin on mobile */
+  }
+}
+
+/* Ensure the header links container is flexed properly */
+.headerLinksContainer {
+  display: flex;
+  align-items: center;
+}
 /* Animations */
 @keyframes slideDown {
   from {

@@ -1,0 +1,76 @@
+.themeToggle {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.themeToggle:hover {
+  transform: scale(1.05);
+}
+
+.toggleTrack {
+  width: 60px;
+  height: 30px;
+  background: var(--toggle-track-bg, rgba(255, 255, 255, 0.2));
+  border: 2px solid var(--toggle-border, rgba(255, 255, 255, 0.3));
+  border-radius: 50px;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.themeToggle:hover .toggleTrack {
+  background: var(--toggle-track-hover, rgba(255, 255, 255, 0.3));
+  border-color: var(--toggle-border-hover, rgba(255, 255, 255, 0.5));
+}
+
+.toggleThumb {
+  width: 22px;
+  height: 22px;
+  background: var(--toggle-thumb-bg, linear-gradient(135deg, #ffd700, #ffed4e));
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--toggle-icon-color, #333);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .toggleThumb {
+  transform: translateX(30px);
+  background: var(--toggle-thumb-bg-dark, linear-gradient(135deg, #4f46e5, #7c3aed));
+  color: var(--toggle-icon-color-dark, white);
+}
+
+/* Light mode specific colors */
+[data-theme="light"] .toggleTrack {
+  --toggle-track-bg: rgba(0, 0, 0, 0.1);
+  --toggle-border: rgba(0, 0, 0, 0.2);
+  --toggle-track-hover: rgba(0, 0, 0, 0.15);
+  --toggle-border-hover: rgba(0, 0, 0, 0.3);
+}
+
+/* Accessibility */
+.themeToggle:focus {
+  outline: none;
+}
+
+.themeToggle:focus .toggleTrack {
+  box-shadow: 0 0 0 3px var(--focus-ring, rgba(59, 130, 246, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggleTrack,
+  .toggleThumb,
+  .themeToggle {
+    transition: none;
+  }
+}
