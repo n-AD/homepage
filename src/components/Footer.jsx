@@ -44,7 +44,7 @@ const Footer = () => {
                 Projects
               </Link>
               <Link to="/About" onClick={handleNavigation("/About")}>
-                About Me
+                About&nbsp;Me
               </Link>
             </div>
           </div>

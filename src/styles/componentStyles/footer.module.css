@@ -42,6 +42,7 @@
 .footerLinks {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: nowrap;
 }
 
 .footerLinks a {

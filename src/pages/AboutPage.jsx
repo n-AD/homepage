@@ -13,35 +13,34 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import resume from "../assets/images/resume.png";
 import styles from "../styles/pageStyles/aboutPage.module.css";
 
 const AboutPage = () => {
   const [activeSection, setActiveSection] = useState(null);
 
-  const skillsData = [
-    {
-      category: "Frontend",
-      skills: ["React", "JavaScript", "CSS", "HTML", "Responsive Design"],
-    },
-    {
-      category: "Backend",
-      skills: ["Node.js", "API Development", "Database Management"],
-    },
-    {
-      category: "Tools",
-      skills: ["Git", "VS Code", "Audio Production", "Project Management"],
-    },
-    {
-      category: "Soft Skills",
-      skills: [
-        "Communication",
-        "Problem Solving",
-        "Team Leadership",
-        "Client Relations",
-      ],
-    },
-  ];
+  // const skillsData = [
+  //   {
+  //     category: "Frontend",
+  //     skills: ["React", "JavaScript", "CSS", "HTML", "Responsive Design"],
+  //   },
+  //   {
+  //     category: "Backend",
+  //     skills: ["Node.js", "API Development", "Database Management"],
+  //   },
+  //   {
+  //     category: "Tools",
+  //     skills: ["Git", "VS Code", "Audio Production", "Project Management"],
+  //   },
+  //   {
+  //     category: "Soft Skills",
+  //     skills: [
+  //       "Communication",
+  //       "Problem Solving",
+  //       "Team Leadership",
+  //       "Client Relations",
+  //     ],
+  //   },
+  // ];
 
   const experienceData = [
     {
@@ -146,27 +145,17 @@ const AboutPage = () => {
             <h1 className={styles.heroTitle}>
               Technical Writer & Creative Problem Solver
             </h1>
-            <p className={styles.heroSubtitle}>
-              Thanks for checking out my website! 
-            </p>
-            <div className={styles.ctaContainer}>
-              <a
-                href="/homepage/public/Resume_Nick_DenBleyker-4.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.ctaButton}
-              >
-                <FaDownload />
-                <span>Download Resume</span>
-              </a>
-              {/* <button 
+            {/* <p className={styles.heroSubtitle}>
+              Thanks for checking out my website!
+            </p> */}
+
+            {/* <button 
                 className={styles.ctaButtonSecondary}
                 onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
               >
                 <span>Let's Connect</span>
                 <FaArrowRight />
               </button> */}
-            </div>
           </div>
           <div className={styles.heroVisual}>
             {/* <div className={styles.resumePreview}>
@@ -182,22 +171,30 @@ const AboutPage = () => {
         <section id="summary" className={styles.summarySection}>
           <div className={styles.sectionHeader}>
             <h2>Professional Overview</h2>
-            <div className={styles.sectionLine}></div>
+            <div className={styles.ctaContainer}>
+              <a
+                href="/homepage/public/Resume_Nick_DenBleyker-5.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaButton}
+              >
+                <FaDownload />
+                <span>Download Resume</span>
+              </a>
+            </div>
           </div>
           <div className={styles.summaryContent}>
             <p className={styles.summaryText}>
-              I'm a versatile full stack developer with a unique background
-              spanning technology, healthcare, and creative industries. My
-              diverse experience has shaped me into a well-rounded professional
-              who approaches challenges with both technical expertise and
-              human-centered thinking.
+              I&apos;m a resourceful, technically skilled, and people-focused
+              professional with a knack for mastering complex systems and
+              turning knowledge into practical solutions.
             </p>
             <p className={styles.summaryText}>
-              I specialize in building modern web applications that prioritize
-              performance, accessibility, and user experience. My passion for
-              continuous learning drives me to stay current with emerging
-              technologies while maintaining a strong foundation in proven
-              methodologies.
+              I specialize in crafting concise, actionable documentation for
+              users, developers, and teams. I understand how to spot gaps,
+              explain complex processes, and reduce friction. I create clean,
+              no-fluff docs that help users help themselves, and help teams
+              scale without burning out their help desks.
             </p>
           </div>
         </section>
@@ -294,12 +291,12 @@ const AboutPage = () => {
           <div className={styles.ctaContent}>
             <h2>Ready to Collaborate?</h2>
             <p>
-              I'm always interested in discussing new opportunities and
+              I&apos;m always interested in discussing new opportunities and
               innovative projects.
             </p>
             <div className={styles.ctaButtons}>
               <a
-                href="/homepage/public/Resume_Nick_DenBleyker-4.pdf"
+                href="/homepage/public/Resume_Nick_DenBleyker-5.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaButton}

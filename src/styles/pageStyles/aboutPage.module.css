@@ -69,6 +69,42 @@
   line-height: 1.2;
 }
 
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  flex-shrink: 0; /* Prevents the heading from shrinking */
+}
+
+.ctaContainer {
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--clr-primary-3);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: var(--clr-primary-6);
+  transform: translateY(-1px);
+}
+
 /* Resume Redirect Section */
 .resumeRedirect {
   display: flex;
@@ -377,6 +413,23 @@
 }
 
 /* Responsive Design */
+/* Mobile responsive - stack vertically on small screens */
+@media (max-width: 768px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .ctaContainer {
+    align-self: stretch; /* Full width on mobile */
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 768px) {
   .resumeContainer {
     padding: var(--space-xl, 2rem) var(--space-md, 1.5rem);
