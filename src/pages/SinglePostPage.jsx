@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import posts from "../assets/data/posts.json";
+import posts from "../assets/data/posts.jsx";
 import styles from "../styles/pageStyles/singlePostPage.module.css";
 
 const SinglePostPage = () => {

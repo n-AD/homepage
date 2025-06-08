@@ -1,5 +1,5 @@
 import PostCard from "../components/PostCard.jsx";
-import posts from "../assets/data/posts.json";
+import posts from "../assets/data/posts.jsx";
 import styles from "../styles/pageStyles/postsPage.module.css";
 
 const PostsPage = () => {
