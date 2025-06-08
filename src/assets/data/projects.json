@@ -1,18 +1,13 @@
 [
   {
     "id": "1",
-    "title": "Games Up",
+    "title": "Project 1",
     "github": "https://github.com/n-ad/Shopping-Cart",
     "liveURL": "https://n-ad.github.io/Shopping-Cart/",
-    "description": "Mock games store using React hooks, React-Router-DOM, ROG API",
-    "summary": "This gaming app was a fun way to solidify concepts of React hooks, React-Router-DOM, and fetching data from an API. The app is a mock games store where users can view games, add them to their cart, and view their cart. The app uses the RAWG API to fetch games data.",
-    "image": "https://nickdhomepagebucket.s3.us-east-2.amazonaws.com/gamesup_pics/gamesup_home.png",
-    "moreImages": [
-      "https://nickdhomepagebucket.s3.us-east-2.amazonaws.com/gamesup_pics/gamesup_home.png",
-      "https://nickdhomepagebucket.s3.us-east-2.amazonaws.com/gamesup_pics/gamesup_game.png",
-      "https://nickdhomepagebucket.s3.us-east-2.amazonaws.com/gamesup_pics/gamesup_search.png",
-      "https://nickdhomepagebucket.s3.us-east-2.amazonaws.com/gamesup_pics/gamesup_cart.png"
-    ],
+    "description": "Project posts coming soon.",
+    "summary": "Game lookup dummy site I created while learning to use React.",
+    "image": "../projects/project1/main.png",
+    "moreImages": [],
     "moreDetails": [
       "Search terms to generate game cards",
       "Individual game page with more details",
@@ -23,7 +18,7 @@
   },
   {
     "id": "2",
-    "title": "Pokemon Match Em!",
+    "title": "Project 2",
     "github": "https://github.com/n-ad/pokemon-memory-game",
     "liveURL": "https://n-ad.github.io/pokemon-memory-game/",
     "description": "Memory game using React states, useEffect hook, and Pokemon API",

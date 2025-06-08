@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/componentStyles/projectsContainer.module.css";
 import ProjectCards from "./ProjectCards";
-import projects from "../assets/data/projects.json";
+import projects from "../assets/data/projects.jsx";
 
 const ProjectsContainer = () => {
   const [activeCategory, setActiveCategory] = useState("all");

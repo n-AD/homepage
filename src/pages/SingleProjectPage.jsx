@@ -82,7 +82,7 @@ const SingleProjectPage = () => {
               ))}
             </div>
 
-            <div className={styles.projectStatus}>
+            {/* <div className={styles.projectStatus}>
               <span
                 className={`${styles.statusBadge} ${
                   styles[project.status?.toLowerCase()]
@@ -90,7 +90,7 @@ const SingleProjectPage = () => {
               >
                 {project.status || "Completed"}
               </span>
-            </div>
+            </div> */}
           </div>
         </header>
 
