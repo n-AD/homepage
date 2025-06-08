@@ -1,72 +1,41 @@
 import { useState } from "react";
-import {
-  FaDownload,
-  FaExternalLinkAlt,
-  FaGraduationCap,
-  FaBriefcase,
-  FaCode,
-  FaMusic,
-  FaDumbbell,
-  FaChartLine,
-  FaUsers,
-  FaCalculator,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaDownload, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styles from "../styles/pageStyles/aboutPage.module.css";
 
 const AboutPage = () => {
   const [activeSection, setActiveSection] = useState(null);
 
-  // const skillsData = [
-  //   {
-  //     category: "Frontend",
-  //     skills: ["React", "JavaScript", "CSS", "HTML", "Responsive Design"],
-  //   },
-  //   {
-  //     category: "Backend",
-  //     skills: ["Node.js", "API Development", "Database Management"],
-  //   },
-  //   {
-  //     category: "Tools",
-  //     skills: ["Git", "VS Code", "Audio Production", "Project Management"],
-  //   },
-  //   {
-  //     category: "Soft Skills",
-  //     skills: [
-  //       "Communication",
-  //       "Problem Solving",
-  //       "Team Leadership",
-  //       "Client Relations",
-  //     ],
-  //   },
-  // ];
-
   const experienceData = [
+    {
+      title: "Technical Support Specialist",
+      company: "PayBright",
+      period: "2024 - Present",
+      type: "Support",
+      description:
+        "Provide inbound/outbound support for payment solutions, including technical troubleshooting, onboarding, and implementation walkthroughs.",
+    },
     {
       title: "Full Stack Developer",
       company: "Personal Projects",
       period: "2022 - Present",
       type: "Development",
-      icon: <FaCode />,
       description:
         "Building modern web applications with focus on user experience and performance optimization.",
     },
     {
-      title: "Audio Production Specialist",
-      company: "Freelance",
+      title: "Audio Production",
+      company: "Contract",
       period: "2021 - Present",
       type: "Creative",
-      icon: <FaMusic />,
       description:
-        "Delivering high-quality audio solutions for diverse client needs and creative projects.",
+        "Deliver high quality vocal recordings for audiobooks and commercial projects.",
     },
     {
       title: "Personal Trainer",
       company: "Fitness Together",
       period: "2020 - 2023",
       type: "Health & Fitness",
-      icon: <FaDumbbell />,
       description:
         "Developed personalized fitness programs and built strong client relationships through results-driven coaching.",
     },
@@ -75,7 +44,6 @@ const AboutPage = () => {
       company: "IronNet",
       period: "2019 - 2020",
       type: "Technology Sales",
-      icon: <FaChartLine />,
       description:
         "Generated qualified leads and managed client relationships in the cybersecurity technology sector.",
     },
@@ -84,55 +52,85 @@ const AboutPage = () => {
       company: "HealthTrax",
       period: "2018 - 2019",
       type: "Program Management",
-      icon: <FaUsers />,
       description:
         "Coordinated wellness programs and managed operations to enhance member experience and engagement.",
     },
-    {
-      title: "Assistant Store Accountant",
-      company: "Harris Teeter",
-      period: "2017 - 2018",
-      type: "Finance",
-      icon: <FaCalculator />,
-      description:
-        "Managed financial operations and inventory systems with attention to accuracy and efficiency.",
-    },
   ];
 
-  const educationData = [
+  const skillsData = {
+    technical: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "HTML/CSS",
+      "Git/GitHub",
+      "Python",
+      "SQL",
+      "REST APIs",
+      "MongoDB",
+      "Express.js",
+    ],
+    tools: [
+      "VS Code",
+      "Figma",
+      "Postman",
+      "Docker",
+      "AWS",
+      "Notion",
+      "Slack",
+      "Jira",
+      "Google Workspace",
+      "Terminal",
+    ],
+    writing: [
+      "Technical Documentation",
+      "API Documentation",
+      "User Guides",
+      "Process Documentation",
+      "Content Strategy",
+      "UX Writing",
+    ],
+  };
+
+  const booksData = [
     {
-      institution: "Appalachian State University",
-      degree: "Bachelor of Science",
-      field: "Health and Fitness",
-      icon: <FaGraduationCap />,
+      title: "Don't Make Me Think",
+      author: "Steve Krug",
+      category: "UX/Design",
       description:
-        "Comprehensive study in health sciences, exercise physiology, and wellness program development.",
+        "Essential principles of intuitive web usability and design.",
     },
     {
-      institution: "The Odin Project",
-      degree: "Full Stack Web Development",
-      field: "Self-Directed Learning",
-      icon: <FaCode />,
+      title: "The Pragmatic Programmer",
+      author: "David Thomas & Andrew Hunt",
+      category: "Development",
       description:
-        "Intensive curriculum covering modern web development technologies and best practices.",
-      link: "/Posts/the-top-experience",
-      linkText: "Read about my TOP experience",
+        "Timeless techniques for writing better, more maintainable code.",
     },
     {
-      institution: "CompTIA A+",
-      degree: "IT Fundamentals Certification",
-      field: "Hardware & Software",
-      icon: <FaCode />,
-      description:
-        "Comprehensive understanding of computer hardware, software, and troubleshooting methodologies.",
+      title: "Atomic Habits",
+      author: "James Clear",
+      category: "Productivity",
+      description: "Building systems for continuous learning and improvement.",
     },
     {
-      institution: "freeCodeCamp",
-      degree: "Web Development Curriculum",
-      field: "Continuous Learning",
-      icon: <FaCode />,
+      title: "Clean Code",
+      author: "Robert C. Martin",
+      category: "Development",
       description:
-        "Ongoing education through hands-on projects and comprehensive programming challenges.",
+        "Best practices for writing readable, maintainable software.",
+    },
+    {
+      title: "The Elements of Style",
+      author: "Strunk & White",
+      category: "Writing",
+      description: "Fundamental principles of clear, effective writing.",
+    },
+    {
+      title: "Made to Stick",
+      author: "Chip Heath & Dan Heath",
+      category: "Communication",
+      description: "How to make ideas memorable and impactful.",
     },
   ];
 
@@ -145,26 +143,8 @@ const AboutPage = () => {
             <h1 className={styles.heroTitle}>
               Technical Writer & Creative Problem Solver
             </h1>
-            {/* <p className={styles.heroSubtitle}>
-              Thanks for checking out my website!
-            </p> */}
-
-            {/* <button 
-                className={styles.ctaButtonSecondary}
-                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-              >
-                <span>Let's Connect</span>
-                <FaArrowRight />
-              </button> */}
           </div>
-          <div className={styles.heroVisual}>
-            {/* <div className={styles.resumePreview}>
-              <img src={resume} alt="Resume Preview" className={styles.resumeImage} />
-              <div className={styles.resumeOverlay}>
-                <FaExternalLinkAlt />
-              </div>
-            </div> */}
-          </div>
+          <div className={styles.heroVisual}></div>
         </section>
 
         {/* Professional Summary */}
@@ -199,28 +179,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Skills Grid */}
-        {/* <section className={styles.skillsSection}>
-          <div className={styles.sectionHeader}>
-            <h2>Core Competencies</h2>
-            <div className={styles.sectionLine}></div>
-          </div>
-          <div className={styles.skillsGrid}>
-            {skillsData.map((skillGroup, index) => (
-              <div key={index} className={styles.skillCard}>
-                <h3 className={styles.skillCategory}>{skillGroup.category}</h3>
-                <div className={styles.skillTags}>
-                  {skillGroup.skills.map((skill, skillIndex) => (
-                    <span key={skillIndex} className={styles.skillTag}>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
         {/* Experience Timeline */}
         <section className={styles.experienceSection}>
           <div className={styles.sectionHeader}>
@@ -238,15 +196,17 @@ const AboutPage = () => {
                   setActiveSection(activeSection === index ? null : index)
                 }
               >
-                <div className={styles.timelineIcon}>{exp.icon}</div>
                 <div className={styles.timelineContent}>
                   <div className={styles.timelineHeader}>
-                    <h3>{exp.title}</h3>
-                    <span className={styles.timelinePeriod}>{exp.period}</span>
+                    <div className={styles.titleCompany}>
+                      <h3>{exp.title}</h3>
+                      <span className={styles.company}>{exp.company}</span>
+                    </div>
+                    <div className={styles.periodType}>
+                      <span className={styles.period}>{exp.period}</span>
+                      <span className={styles.type}>{exp.type}</span>
+                    </div>
                   </div>
-                  <p className={styles.timelineCompany}>
-                    {exp.company} • {exp.type}
-                  </p>
                   <p className={styles.timelineDescription}>
                     {exp.description}
                   </p>
@@ -256,33 +216,65 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Education */}
-        <section className={styles.educationSection}>
+        <section className={styles.skillsSection}>
           <div className={styles.sectionHeader}>
-            <h2>Education & Certifications</h2>
+            <h2>Skills & Learning</h2>
             <div className={styles.sectionLine}></div>
           </div>
-          <div className={styles.educationGrid}>
-            {educationData.map((edu, index) => (
-              <div key={index} className={styles.educationCard}>
-                <div className={styles.educationIcon}>{edu.icon}</div>
-                <div className={styles.educationContent}>
-                  <h3>{edu.degree}</h3>
-                  <p className={styles.educationInstitution}>
-                    {edu.institution}
-                  </p>
-                  <p className={styles.educationField}>{edu.field}</p>
-                  <p className={styles.educationDescription}>
-                    {edu.description}
-                  </p>
-                  {edu.link && (
-                    <Link to={edu.link} className={styles.educationLink}>
-                      {edu.linkText} <FaArrowRight />
-                    </Link>
-                  )}
+
+          {/* Skills Grid */}
+          <div className={styles.skillsContainer}>
+            <div className={styles.skillsGrid}>
+              <div className={styles.skillCategory}>
+                <h3>Technical Skills</h3>
+                <div className={styles.skillTags}>
+                  {skillsData.technical.map((skill, index) => (
+                    <span key={index} className={styles.skillTag}>
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
+
+              <div className={styles.skillCategory}>
+                <h3>Tools & Platforms</h3>
+                <div className={styles.skillTags}>
+                  {skillsData.tools.map((tool, index) => (
+                    <span key={index} className={styles.skillTag}>
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.skillCategory}>
+                <h3>Writing & Documentation</h3>
+                <div className={styles.skillTags}>
+                  {skillsData.writing.map((skill, index) => (
+                    <span key={index} className={styles.skillTag}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Books Section */}
+          <div className={styles.booksContainer}>
+            <h3 className={styles.booksTitle}>Recent Reads</h3>
+            <div className={styles.booksGrid}>
+              {booksData.map((book, index) => (
+                <div key={index} className={styles.bookCard}>
+                  <div className={styles.bookHeader}>
+                    <h4 className={styles.bookTitle}>{book.title}</h4>
+                    <span className={styles.bookCategory}>{book.category}</span>
+                  </div>
+                  <p className={styles.bookAuthor}>by {book.author}</p>
+                  <p className={styles.bookDescription}>{book.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

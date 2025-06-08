@@ -4,8 +4,7 @@
 .postPageContainer {
   max-width: var(--content-max-width, min(90vw, 1200px));
   margin: 0 auto;
-  padding: var(--section-spacing, clamp(2rem, 8vw, 6rem))
-    var(--container-padding, clamp(1rem, 5vw, 3rem));
+  padding: var(--section-spacing) var(--container-padding);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
   gap: var(--space-xl, 2rem);
