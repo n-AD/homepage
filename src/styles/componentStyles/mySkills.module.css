@@ -1,70 +1,238 @@
 .skillsContainer {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-3xl, 2.5rem);
+  padding: var(--space-xl, 2rem) 0;
 }
 
 .skillsTop {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--space-xl, 2rem);
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .skillsBottom {
   display: flex;
   flex-direction: column;
+  gap: var(--space-lg, 1.5rem);
+  text-align: center;
 }
 
 .skill {
-  text-align: center;
-  font-size: var(--font-size);
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-}
-.skill > img {
-  width: 100px;
-}
-
-.skill > img:hover {
-  animation: wiggle 0.5s ease-in-out;
-}
-
-.skillsInProgress {
-  font-size: var(--font-size);
-}
-
-@keyframes wiggle {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(3deg);
-  }
-  75% {
-    transform: rotate(-3deg);
-  }
-}
-
-.skill .tooltip {
-  margin-top: 10px;
-  padding: 3px;
-  visibility: hidden;
-  border-radius: 5px;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.4s;
+  align-items: center;
+  text-align: center;
+  font-size: var(--font-size-base, 1rem);
+  padding: var(--space-md, 1rem);
+  border-radius: var(--radius-lg, 12px);
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: var(--clr-surface-elevated);
+  border: 1px solid var(--clr-border);
+  min-width: 120px;
+  cursor: pointer;
 }
 
 .skill:hover {
-  cursor: default;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  background: var(--clr-surface);
+  border-color: var(--clr-primary-3);
+}
+
+.skill > img {
+  width: clamp(60px, 8vw, 80px);
+  height: auto;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: var(--space-sm, 0.75rem);
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* Theme-aware skill icon filters */
+[data-theme="dark"] .skill > img {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+[data-theme="light"] .skill > img {
+  filter: brightness(0.9) contrast(1.2) saturate(1.1);
+}
+
+.skill:hover > img {
+  animation: wiggle 0.6s ease-in-out;
+  transform: scale(1.05);
+}
+
+.skillsInProgress {
+  font-size: var(--font-size-lg, 1.125rem);
+  color: var(--clr-text-secondary);
+  font-weight: var(--font-weight-medium, 500);
+  margin-top: var(--space-md, 1rem);
+}
+
+.skillsInProgress strong {
+  color: var(--clr-text-primary);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+/* Tooltip styling */
+.skill .tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: var(--space-sm, 8px);
+  padding: var(--space-sm, 0.75rem) var(--space-md, 1rem);
+  background: var(--clr-surface-elevated);
+  color: var(--clr-text-primary);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md, 8px);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  visibility: hidden;
+  opacity: 0;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+/* Tooltip arrow */
+.skill .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--clr-border);
 }
 
 .skill:hover .tooltip {
   visibility: visible;
   opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* Improved wiggle animation */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1.05);
+  }
+  15% {
+    transform: rotate(-4deg) scale(1.05);
+  }
+  30% {
+    transform: rotate(4deg) scale(1.05);
+  }
+  45% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+  60% {
+    transform: rotate(3deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-2deg) scale(1.05);
+  }
+  90% {
+    transform: rotate(1deg) scale(1.05);
+  }
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .skillsContainer {
+    gap: var(--space-2xl, 2rem);
+  }
+
+  .skillsTop {
+    gap: var(--space-lg, 1.5rem);
+    justify-content: center;
+  }
+
+  .skill {
+    min-width: 100px;
+    padding: var(--space-sm, 0.75rem);
+  }
+
+  .skill > img {
+    width: clamp(50px, 10vw, 70px);
+  }
+
+  .skill .tooltip {
+    position: fixed;
+    bottom: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    max-width: 90vw;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .skill .tooltip::after {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .skillsTop {
+    gap: var(--space-lg, 1.5rem);
+  }
+
+  .skill {
+    min-width: 110px;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1200px) {
+  .skillsTop {
+    gap: var(--space-2xl, 2.5rem);
+  }
+
+  .skill {
+    min-width: 140px;
+    padding: var(--space-lg, 1.5rem);
+  }
+
+  .skill > img {
+    width: clamp(70px, 6vw, 90px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .skill,
+  .skill > img,
+  .skill .tooltip {
+    transition: none;
+    animation: none;
+  }
+
+  .skill:hover > img {
+    transform: scale(1.02);
+    animation: none;
+  }
+
+  .skill:hover .tooltip {
+    transform: translateX(-50%);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .skill {
+    border-width: 2px;
+    border-color: var(--clr-text-primary);
+  }
+
+  .skill .tooltip {
+    border-width: 2px;
+    background: var(--clr-background);
+  }
 }
