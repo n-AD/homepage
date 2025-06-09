@@ -143,7 +143,7 @@ const Nav = () => {
               }
               onClick={handleNavigation("/About")}
             >
-              About Me
+              About&nbsp;Me
             </NavLink>
           </div>
 
@@ -202,7 +202,7 @@ const Nav = () => {
           >
             About
           </NavLink>
-          
+
           {/* Theme toggle in mobile menu too */}
           <div className={styles.mobileThemeToggle}>
             <span className={styles.themeLabel}>Theme</span>

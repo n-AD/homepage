@@ -123,8 +123,9 @@ const AboutPage = () => {
       title: "Beware of Chicken",
       author: "Casualfarmer",
       category: "Lit-RPG Fiction",
-      description: "A low stakes farming adventure, with tons of kung-fu along the way.",
-    }
+      description:
+        "A low stakes farming adventure, with tons of kung-fu along the way.",
+    },
   ];
 
   return (
