@@ -104,7 +104,7 @@
 /* Light theme overrides */
 [data-theme="light"] {
   /* Core background and surfaces */
-  --clr-background: #ffffff;
+  --clr-background: whitesmoke;
   --clr-surface: #f8fafc;
   --clr-surface-elevated: #f1f5f9;
   

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FaDownload, FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaDownload } from "react-icons/fa";
 import styles from "../styles/pageStyles/aboutPage.module.css";
 
 const AboutPage = () => {
@@ -131,16 +130,6 @@ const AboutPage = () => {
   return (
     <article className={styles.aboutContainer}>
       <div className={styles.aboutWrapper}>
-        {/* Hero Section */}
-        <section className={styles.heroSection}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
-              Technical Writer & Creative Problem Solver
-            </h1>
-          </div>
-          <div className={styles.heroVisual}></div>
-        </section>
-
         {/* Professional Summary */}
         <section id="summary" className={styles.summarySection}>
           <div className={styles.sectionHeader}>
