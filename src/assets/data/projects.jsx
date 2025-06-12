@@ -19,6 +19,40 @@ const projects = [
     ],
     slug: "games-up",
   },
+  {
+    id: "2",
+    title: "test",
+    github: "https://github.com/n-ad/Shopping-Cart",
+    liveURL: "https://n-ad.github.io/Shopping-Cart/",
+    description: "Project posts coming soon.",
+    summary: "not really a summary because this is test content",
+    image: null,
+    moreImages: [project1Main,], // Remove the undefined variables for now
+    moreDetails: [
+      "The homepage of GamesUp",
+      "Individual game page with more details",
+      "Input any game title to search for it",
+      "Add games to your cart and view them",
+    ],
+    slug: "games-up",
+  },
+  {
+    id: "3",
+    title: "test",
+    github: "https://github.com/n-ad/Shopping-Cart",
+    liveURL: "https://n-ad.github.io/Shopping-Cart/",
+    description: "Project posts coming soon.",
+    summary: "not really a summary because this is test content",
+    image: null,
+    moreImages: [project1Main,], // Remove the undefined variables for now
+    moreDetails: [
+      "The homepage of GamesUp",
+      "Individual game page with more details",
+      "Input any game title to search for it",
+      "Add games to your cart and view them",
+    ],
+    slug: "games-up",
+  },
   // Add more projects here
 ];
 

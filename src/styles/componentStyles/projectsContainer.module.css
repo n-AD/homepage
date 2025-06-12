@@ -102,11 +102,12 @@ main {
   min-height: 450px; /* Changed from height to min-height */
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg, 12px);
+  border-radius: 12px 12px;
   overflow: visible; /* Changed from hidden to visible */
   transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-md);
   position: relative;
+  overflow: hidden; /* This clips the image to the container's shape */
 }
 
 .projectCard::before {
@@ -116,12 +117,6 @@ main {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--clr-primary-3),
-    var(--clr-primary-8),
-    var(--clr-primary-7)
-  );
   opacity: 0;
   transition: opacity var(--transition-slow) ease;
   z-index: 1;
@@ -605,4 +600,44 @@ main {
     border-width: 2px;
     background: var(--clr-background);
   }
+}
+/* Enhanced project card styling for better light mode contrast */
+[data-theme="light"] .projectCard {
+  background: var(--clr-surface-elevated);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .projectCardLink:hover .projectCard {
+  background: var(--clr-surface);
+  border-color: var(--clr-primary-3);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Optional: Make the details section even more prominent */
+[data-theme="light"] .projectDetails {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0 0 var(--radius-lg, 12px) var(--radius-lg, 12px);
+}
+
+/* Enhanced border for better definition */
+[data-theme="light"] .projectCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg, 12px);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.1)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }

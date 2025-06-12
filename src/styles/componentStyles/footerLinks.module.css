@@ -52,7 +52,7 @@
 }
 
 /* Tooltip styles (uncommented and improved) */
-.footerSocialLink::after {
+/* .footerSocialLink::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 100%;
@@ -72,12 +72,7 @@
   z-index: 1000;
   margin-bottom: var(--space-xs);
   box-shadow: var(--shadow-md);
-}
-
-.footerSocialLink:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
+} */
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
