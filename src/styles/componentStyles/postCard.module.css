@@ -1,0 +1,25 @@
+/* In your PostCard.module.css or wherever PostCard styles are */
+.postCard {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--clr-primary, #64b5f6);
+  padding: 2rem;
+  padding-left: 2.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+/* Default/dark mode styling */
+.postCard {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--clr-primary, #64b5f6);
+  padding: 2rem;
+  padding-left: 2.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+/* Light mode override */
+[data-theme="light"] .postCard {
+  background: rgba(0, 0, 0, 0.05); /* Darker background for light mode */
+  border-left: 3px solid var(--clr-primary, #1976d2);
+}

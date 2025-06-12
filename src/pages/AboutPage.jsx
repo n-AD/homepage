@@ -136,7 +136,7 @@ const AboutPage = () => {
             <h2>Professional Overview</h2>
             <div className={styles.ctaContainer}>
               <a
-                href="/homepage/public/Resume_Nick_DenBleyker-5.pdf"
+                href="./Resume_Nick_DenBleyker-5.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaButton}
@@ -271,7 +271,7 @@ const AboutPage = () => {
             </p>
             <div className={styles.ctaButtons}>
               <a
-                href="/homepage/public/Resume_Nick_DenBleyker-5.pdf"
+                href="./Resume_Nick_DenBleyker-5.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaButton}
